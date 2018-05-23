@@ -1,0 +1,13 @@
+while True:
+    enter = input("\nTo quit enter -1, to continue press any key\n")
+    if enter != "-1":
+        word = input("Enter word: ")
+        rev_word = word[::-1]
+        output = ""
+        if word == rev_word:
+            output = ""
+        else:
+            output = "not "
+        print("{0} is {1}palindrome".format(word, output))
+    else:
+        break

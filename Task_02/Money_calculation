@@ -1,0 +1,12 @@
+while True:
+    enter = input("\nTo quit enter -1, to continue press any key\n")
+    if enter != "-1":
+        count = input("Enter count of items: ")
+        dol = input("Enter dollars: ")
+        cent = input("Enter cents: ")
+        print("\nOne item price {0} dollars {1} cents. Calculate price for {2} items\n".format(dol, cent, count))
+        price = (float(dol)+float(cent)/100)*float(count)
+        print("Total cost: %.2f\n" % price)
+    else:
+        break
+
