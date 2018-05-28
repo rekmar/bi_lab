@@ -3,7 +3,7 @@ def generate_numbers():
         enter = input("\nTo quit enter -1, to continue press any key\n")
         if enter != "-1":
             number = int(input("Enter number: "))
-            print({x: x*x for x in range(1, number+1)})
+            print({x: x * x for x in range(1, number + 1)})
         else:
             break
 
@@ -23,11 +23,11 @@ def fizz_buzz():
     for i in range(1, 101):
         result.append("")
         if i % 3 == 0:
-            result[i-1] += "Fizz"
+            result[i - 1] += "Fizz"
         if i % 5 == 0:
-            result[i-1] += "Buzz"
-        if result[i-1] == "":
-            result[i-1] += str(i)
+            result[i - 1] += "Buzz"
+        if result[i - 1] == "":
+            result[i - 1] += str(i)
     print(result)
 
 
