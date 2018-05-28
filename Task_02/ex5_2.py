@@ -1,4 +1,4 @@
-#
+# https://py.checkio.org/en/mission/the-most-frequent/
 
 
 def most_frequent(data: list) -> str:
