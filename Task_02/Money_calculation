@@ -9,4 +9,3 @@ while True:
         print("Total cost: %.2f\n" % price)
     else:
         break
-
