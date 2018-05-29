@@ -1,3 +1,4 @@
+
 class Group (object):
     def __init__(self, number, year):
         self.number = number
@@ -13,10 +14,13 @@ class Group (object):
             print(st)
 
     def add_student(self, name, surname, birthdate):
-        self.students.append({'name': name, 'surname': surname, 'birthdate': birthdate})
+        self.students.append({'name': name, 
+                              'surname': surname, 
+                              'birthdate': birthdate})
 
     def print_count_of_stud(self):
-        print("\nCount of students in group {0} is {1}\n".format(self.number, self.get_count_of_students))
+        print("\nCount of students in group {0} is {1}\n".format(self.number, 
+                                                                 self.get_count_of_students))
 
 
 Group1 = Group(551002, 2015)
