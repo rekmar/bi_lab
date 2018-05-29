@@ -1,4 +1,4 @@
-lass Group (object):
+class Group (object):
     def __init__(self, number, year):
         self.number = number
         self.year = year
