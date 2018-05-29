@@ -1,5 +1,4 @@
-
-class Group (object):
+lass Group (object):
     def __init__(self, number, year):
         self.number = number
         self.year = year
@@ -34,6 +33,3 @@ Group2 = Group(551003, 2015)
 Group2.add_student('Alina', 'Ivchenko', '06-11-1997')
 Group2.print_students()
 Group2.print_count_of_stud()
-
-
-
