@@ -7,7 +7,9 @@ if file_path.exists():
     with open(file_path, 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            films.append({'title': row['Title'], 'year': row['Year'], 'rating': row['Rating']})
+            films.append({'title': row['Title'],
+                          'year': row['Year'],
+                          'rating': row['Rating']})
     file.close()
 else:
     print("File not exists")
