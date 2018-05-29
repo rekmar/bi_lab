@@ -1,4 +1,4 @@
-import csv
+ import csv
 from pathlib import Path
 
 films = []
@@ -36,7 +36,7 @@ for film in films:
 
 avg_years = {}
 for year, values in years.items():
-    avg_years[year] = round(values[1]/values[0], 1)
+    avg_years[year] = round(values[1] / values[0], 1)
 
 with open('rating.csv', 'w', newline='') as rat_file:
     fieldnames = ['Year', 'Avg_rating']
