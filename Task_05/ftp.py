@@ -1,7 +1,7 @@
+import argparse
+import gzip
 from ftplib import FTP
 from pathlib import Path
-import gzip
-import argparse
 
 filename = "ratings.list.gz"
 
@@ -26,7 +26,7 @@ if not loc_file_path.exists():
     ftp.cwd(file_path)
     ftp.retrlines('LIST')
     local_file = open(loc_file_path, "wb")
-    ftp.retrbinary("RETR " + filename, local_file.write, 8*1024)
+    ftp.retrbinary("RETR " + filename, local_file.write, 8 * 1024)
     local_file.close()
 
 with gzip.open(filename) as f:
@@ -35,4 +35,3 @@ with gzip.open(filename) as f:
 
 with open("{}.txt".format(file_name), 'wb') as f:
     f.write(file_content)
-
