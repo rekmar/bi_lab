@@ -1,6 +1,6 @@
 def division():
     try:
-        print(5/0)
+        print(5 / 0)
     except ZeroDivisionError:
         print("You cannot divide to zero\n")
 
