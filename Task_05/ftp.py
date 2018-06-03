@@ -1,6 +1,6 @@
 import argparse
-import gzip
 from ftplib import FTP
+import gzip
 from pathlib import Path
 
 filename = "ratings.list.gz"
