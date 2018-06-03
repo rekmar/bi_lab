@@ -1,0 +1,71 @@
+import argparse
+import csv
+from pathlib import Path
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--year', help='Display top250movies titles with year',
+                    action='store_true')
+parser.add_argument('--rate', help=' displays Top250 movies titles with rate',
+                    action='store_true')
+parser.add_argument('--all', help='shows title, rate, year',
+                    action='store_true')
+parser.add_argument('--histogram', help='displays histogram',
+                    nargs='?')
+parser.add_argument('--output', help='stores all data to specified filename file',
+                    action='store_true')
+args = parser.parse_args()
+
+films = []
+file_path = Path("IMDB-Movie-Data.csv")
+if file_path.exists():
+    with open(file_path, 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            films.append({'title': row['Title'],
+                          'year': row['Year'],
+                          'rating': row['Rating']})
+    file.close()
+    if args.year:
+        films.sort(key=lambda films: films['rating'], reverse=True)
+        films_250 = films[:250]
+        print('Title    Year')
+        for film in films_250:
+            print("{0}  {1}".format(film.get('title'), film.get('year')))
+    if args.rate:
+        films.sort(key=lambda films: films['rating'], reverse=True)
+        films_250 = films[:250]
+        print('Title    Rating')
+        for film in films_250:
+            print("{0}  {1}".format(film.get('title'), film.get('rating')))
+    if args.all:
+        print('Title    Year    Rating')
+        for film in films:
+            print("{0}  {1}   {2}".format(film.get('title'), film.get('year'), film.get('rating')))
+    if args.histogram == 'year':
+        histogram = {}
+        for film in films:
+            if histogram.get(int(film.get('year'))) is None:
+                histogram[int(film.get('year'))] = 1
+            else:
+                histogram[int(film.get('year'))] += 1
+        print('Year   Count')
+        for k in histogram:
+            print("{0}   {1}".format(k, histogram[k]))
+    if args.histogram == 'rating':
+        histogram = {}
+        for film in films:
+            if histogram.get(film.get('rating')) is None:
+                histogram[film.get('rating')] = 1
+            else:
+                histogram[film.get('rating')] += 1
+        print('Rating   Count')
+        for k in histogram:
+            print("{0}   {1}".format(k, histogram[k]))
+    if args.output:
+        with open(args.output, 'w', newline='\n') as f:
+            for row in films:
+                f.writelines(str(row))
+
+else:
+    print("File not exists")
